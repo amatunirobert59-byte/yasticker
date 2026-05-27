@@ -1,65 +1,214 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="site">
+
+      {/* HERO */}
+
+      <section className="hero">
+
+        <div className="bg"></div>
+
+        <h1>ЯСтикер</h1>
+
+        <p>
+          Премиальный магазин стикеров
+        </p>
+
+        <div className="heroButtons">
+
+          <a
+            href="#catalog"
+            className="btn primary"
+          >
+            Каталог
+          </a>
+
+          <a
+            href="https://t.me/Robirto1234"
+            target="_blank"
+            className="btn secondary"
+          >
+            Telegram
+          </a>
+
+        </div>
+
+      </section>
+
+      {/* SEARCH */}
+
+      <section className="searchSection">
+
+        <input
+          type="text"
+          placeholder="Поиск товаров..."
+          className="search"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+      </section>
+
+      {/* PRODUCTS */}
+
+      <section
+        className="catalog"
+        id="catalog"
+      >
+
+        {/* CARD 1 */}
+
+        <div className="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200"
+            alt=""
+          />
+
+          <div className="cardBody">
+
+            <h3>Anime Sticker Pack</h3>
+
+            <div className="priceBox">
+
+              <span className="oldPrice">
+                500 ₽
+              </span>
+
+              <span className="price">
+                350 ₽
+              </span>
+
+            </div>
+
+            <div className="actions">
+
+              <button className="cartBtn">
+                В корзину
+              </button>
+
+              <a
+                href="https://t.me/Robirto1234"
+                target="_blank"
+                className="buyBtn"
+              >
+                Купить
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* CARD 2 */}
+
+        <div className="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200"
+            alt=""
+          />
+
+          <div className="cardBody">
+
+            <h3>Gaming Sticker Set</h3>
+
+            <div className="priceBox">
+
+              <span className="oldPrice">
+                900 ₽
+              </span>
+
+              <span className="price">
+                700 ₽
+              </span>
+
+            </div>
+
+            <div className="actions">
+
+              <button className="cartBtn">
+                В корзину
+              </button>
+
+              <a
+                href="https://t.me/Robirto1234"
+                target="_blank"
+                className="buyBtn"
+              >
+                Купить
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
-      </main>
-    </div>
-  );
+
+        {/* CARD 3 */}
+
+        <div className="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200"
+            alt=""
+          />
+
+          <div className="cardBody">
+
+            <h3>Premium Holographic Pack</h3>
+
+            <div className="priceBox">
+
+              <span className="oldPrice">
+                1200 ₽
+              </span>
+
+              <span className="price">
+                850 ₽
+              </span>
+
+            </div>
+
+            <div className="actions">
+
+              <button className="cartBtn">
+                В корзину
+              </button>
+
+              <a
+                href="https://t.me/Robirto1234"
+                target="_blank"
+                className="buyBtn"
+              >
+                Купить
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* TELEGRAM */}
+
+      <footer className="footer">
+
+        <p>
+          Все эксклюзивные предложения
+          в нашем телеграм-канале
+        </p>
+
+        <a
+          href="https://t.me/Ystickmos"
+          target="_blank"
+        >
+          t.me/Ystickmos
+        </a>
+
+      </footer>
+
+    </main>
+  )
 }
