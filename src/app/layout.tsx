@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import Script from "next/script"
+import { CartProvider } from "@/context/CartContext"
 
 export const metadata: Metadata = {
   title: "Ястикер",
@@ -16,7 +17,11 @@ export default function RootLayout({
     <html lang="ru">
       <body>
 
-        {children}
+        <CartProvider>
+
+{children}
+
+</CartProvider>
 
         <footer
           style={{

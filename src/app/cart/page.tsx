@@ -4,19 +4,10 @@ import { useCart } from "@/context/CartContext"
 
 export default function CartPage() {
 
-  const {
-    cart,
-    removeFromCart,
-    clearCart
-  } = useCart()
-
-  const total = cart.reduce(
-    (sum: number, item: any) =>
-      sum + Number(item.price),
-    0
-  )
+  const { cart, removeFromCart } = useCart()
 
   return (
+
     <main
       style={{
         minHeight: "100vh",
@@ -26,44 +17,68 @@ export default function CartPage() {
       }}
     >
 
-      <h1>Корзина</h1>
+      <h1
+        style={{
+          fontSize: "42px",
+          marginBottom: "40px"
+        }}
+      >
+        Корзина
+      </h1>
 
-      {cart.map((item: any) => (
+      {cart.length === 0 ? (
+
+        <p>Корзина пуста</p>
+
+      ) : (
 
         <div
-          key={item.id}
           style={{
-            background: "#111",
-            padding: "20px",
-            marginTop: "20px",
-            borderRadius: "20px"
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px"
           }}
         >
 
-          <h2>{item.title}</h2>
+          {cart.map((item: any) => (
 
-          <p>{item.price} ₽</p>
+            <div
+              key={item.id}
+              style={{
+                background: "#111",
+                padding: "20px",
+                borderRadius: "20px"
+              }}
+            >
 
-          <button
-            onClick={() =>
-              removeFromCart(item.id)
-            }
-          >
-            Удалить
-          </button>
+              <h2>{item.title}</h2>
+
+              <p>{item.price} ₽</p>
+
+              <button
+                onClick={() => removeFromCart(item.id)}
+                style={{
+                  marginTop: "15px",
+                  padding: "10px 20px",
+                  borderRadius: "12px",
+                  border: "none",
+                  background: "#ff3b30",
+                  color: "white",
+                  cursor: "pointer"
+                }}
+              >
+                Удалить
+              </button>
+
+            </div>
+
+          ))}
 
         </div>
 
-      ))}
-
-      <h2
-        style={{
-          marginTop: "40px"
-        }}
-      >
-        Итого: {total} ₽
-      </h2>
+      )}
 
     </main>
+
   )
 }

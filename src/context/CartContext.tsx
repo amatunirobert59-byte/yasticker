@@ -17,11 +17,9 @@ export function CartProvider({
 
   const [cart, setCart] = useState<any[]>([])
 
-  // Загрузка корзины из localStorage
   useEffect(() => {
 
-    const savedCart =
-      localStorage.getItem("cart")
+    const savedCart = localStorage.getItem("cart")
 
     if (savedCart) {
       setCart(JSON.parse(savedCart))
@@ -29,7 +27,6 @@ export function CartProvider({
 
   }, [])
 
-  // Сохранение корзины
   useEffect(() => {
 
     localStorage.setItem(
@@ -39,14 +36,12 @@ export function CartProvider({
 
   }, [cart])
 
-  // Добавление товара
   const addToCart = (product: any) => {
 
     setCart((prev) => [...prev, product])
 
   }
 
-  // Удаление товара
   const removeFromCart = (id: number) => {
 
     setCart((prev) =>
@@ -55,24 +50,25 @@ export function CartProvider({
 
   }
 
-  // Очистка корзины
-  const clearCart = () => {
-    setCart([])
-  }
-
   return (
+
     <CartContext.Provider
       value={{
         cart,
         addToCart,
-        removeFromCart,
-        clearCart
+        removeFromCart
       }}
     >
+
       {children}
+
     </CartContext.Provider>
+
   )
 }
 
-export const useCart = () =>
-  useContext(CartContext)
+export function useCart() {
+
+  return useContext(CartContext)
+
+}
