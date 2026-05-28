@@ -1,13 +1,7 @@
 import { supabase } from "@/lib/supabase"
-import { admins } from "@/lib/admins"
 import UploadProduct from "@/components/UploadProduct"
-import { useCart } from "@/context/CartContext"
 
 export default async function Home() {
-  const {
-  data: { user },
-} = await supabase.auth.getUser()
-const isAdmin = admins.includes(user?.email || "")
 
   const { data, error } = await supabase
     .from("products")
@@ -16,7 +10,6 @@ const isAdmin = admins.includes(user?.email || "")
   if (error) {
     console.log(error)
   }
-  
 
   return (
     <main
@@ -38,8 +31,8 @@ const isAdmin = admins.includes(user?.email || "")
       >
         ЯСтикер
       </h1>
+
       <UploadProduct />
-      {isAdmin && <UploadProduct />}
 
       {!data || data.length === 0 ? (
 
